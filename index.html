@@ -3,152 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creators Matrix - 独立开发者与自媒体数字资产矩阵</title>
-    <meta name="description" content="Creators Matrix 专注于探索数字资产、大模型本地自动化管线(vfx-pipeline)以及特色领域量化换算。致力于为独立创作者提供无弹窗、纯前端的安全极客生产力。">
-    <meta name="google-site-verification" content="WBd5ihUqyGU_WVKMVppCAk2anl58qI1BSkAh-lMDjCs" />
+    <title>laomunong.com — 独立创作者数字资产矩阵 | AI工具 + 量化中医</title>
+    <meta name="description" content="老码农的数字资产武器库。双核驱动：AI技术工坊（Token/VRAM/Context计算器）与量化中医实验室（经方剂量换算、五运六气推算）。纯前端运行，100%保护隐私。">
+    <link rel="canonical" href="https://laomunong.com/">
+    <meta property="og:title" content="laomunong.com — 独立创作者数字资产矩阵">
+    <meta property="og:description" content="AI技术工坊 + 量化中医实验室，双核驱动的独立创作者生产力平台。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://laomunong.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="google-site-verification" content="WBd5ihUqyGU_WVKMVppCAk2anl58qI1BSkAh-lMDjCs">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7499717658670470"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7499717658670470" crossorigin="anonymous"></script>
+    <style>
+        .geek-card { transition: border-color 0.2s; }
+        .geek-card:hover { border-color: #10b981; }
+    </style>
 </head>
-<body class="bg-stone-100 text-stone-800 min-h-screen flex flex-col justify-between p-4 md:p-12">
+<body class="bg-stone-950 text-stone-200 min-h-screen flex flex-col font-sans">
 
-    <div class="max-w-4xl mx-auto w-full my-auto space-y-12">
-        
-        <header class="text-center md:text-left space-y-2 border-b border-stone-200 pb-8">
-            <h1 class="text-4xl md:text-5xl font-black text-stone-900 tracking-tighter uppercase">
-                CREATORS <span class="text-emerald-600">MATRIX</span>
-            </h1>
-            <p class="text-sm md:text-base text-stone-500 font-mono">
-                // 独立创作者、老码农的数字资产与自动化武器库。
-            </p>
-        </header>
-
-        <main id="matrixContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            </main>
-
-    </div>
-
-    <footer class="text-center text-xs text-stone-400 mt-12 space-y-2">
-        <p>© 2026 Creators Matrix. Powered by GitHub Pages Sandboxed Engine.</p>
-        <p class="max-w-xl mx-auto px-4">
-            这里是数字化内容生产线的中央总线。我们坚持纯前端本地计算，不收集、不上传任何用户输入的数据与代码资产，100% 捍卫独立开发者的代码与提示词隐私。
+<!-- GDPR Cookie Banner -->
+<div id="gdprBanner" class="hidden fixed bottom-0 left-0 right-0 bg-stone-900 border-t border-stone-700 p-4 z-50">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-stone-400 leading-relaxed">
+            🍪 本站使用 Cookie 和广告服务以改善体验。继续浏览即表示同意我们的 <a href="./privacy-policy.html" class="text-emerald-400 underline">隐私政策</a>。
         </p>
-        <p class="pt-2">
-            <a href="./privacy-policy.html" class="text-stone-400 hover:text-emerald-600 underline transition-colors mx-2">Privacy Policy (隐私政策)</a>
-        </p>
-    </footer>
-
-    <script>
-        // 未来如果有了 L3-L5 的独立视频大矩阵展示页，直接在这里加一个对象即可！
-        const matrixNodes = [
-            {
-                name: "TECH WORKSHOP / 技术工坊",
-                desc: "专注大模型算力成本调优、本地 VRAM 显存精准换算、以及自媒体自动化视频管线 (vfx-pipeline) 的硬核开源工具箱与核心技术白皮书。",
-                link: "./tech-workshop/",
-                badge: "AI & Tools",
-                style: "border-emerald-500 hover:bg-emerald-50/20 text-emerald-700"
-            },
-            {
-                name: "QUANT TCM / 中医药量化库",
-                desc: "探索传统中医药方剂、特色历史资产的数字化换算与数据清洗阵地。用极客的视角与现代算法，给传统中医药插上量化的翅膀。",
-                link: "./quant-tcm/",
-                badge: "Data Matrix",
-                style: "border-amber-600 hover:bg-amber-50/20 text-amber-800"
-            }
-        ];
-
-        function renderMatrix() {
-            const container = document.getElementById('matrixContainer');
-            container.innerHTML = matrixNodes.map(node => `
-                <a href="${node.link}" class="group bg-white border border-stone-200 ${node.style.split(' ')[0]} hover:shadow-md rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between space-y-6">
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full border border-current opacity-80 uppercase tracking-wider">${node.badge}</span>
-                            <span class="text-stone-300 group-hover:text-stone-500 transition-colors font-mono text-xs">ENTER //</span>
-                        </div>
-                        <h2 class="text-lg font-bold text-stone-900 group-hover:${node.style.split(' ')[2]} transition-colors">
-                            ${node.name}
-                        </h2>
-                        <p class="text-xs text-stone-500 leading-relaxed">
-                            ${node.desc}
-                        </p>
-                    </div>
-                    <div class="text-xs font-bold ${node.style.split(' ')[2]} flex items-center gap-1">
-                        立即进入专区 <span class="transform group-hover:translate-x-1 transition-transform">→</span>
-                    </div>
-                </a>
-            `).join('');
-        }
-
-        window.onload = renderMatrix;
-    </script>
-    <div id="gdprConsentBanner" class="hidden fixed bottom-4 right-4 max-w-md bg-white border border-stone-200 shadow-xl rounded-2xl p-6 z-50 transition-all duration-300 transform translate-y-10">
-    <div class="space-y-4">
-        <div class="flex items-center gap-2">
-            <span class="text-lg">🇪🇺</span>
-            <h3 class="text-sm font-bold text-stone-900 tracking-tight">Your Privacy & Consent Choices (EEA/UK/CH Compliance)</h3>
-        </div>
-        <p class="text-xs text-stone-500 leading-relaxed">
-            We and our certified third-party partners (such as Google AdSense) use technologies like cookies to process personal data, measure ad performance, and secure site analytics. In compliance with GDPR and local regulations, we require your explicit consent before loading tracking nodes. You can review our full <a href="./privacy-policy.html" class="text-emerald-600 font-bold underline">Privacy Policy</a> at any time.
-        </p>
-        <div class="flex items-center justify-end gap-2.5 pt-2 text-xs font-mono">
-            <button id="btnRejectAll" class="text-stone-500 hover:text-rose-600 border border-stone-200 px-3 py-2 rounded-xl bg-stone-50 transition">
-                REJECT / 拒绝
-            </button>
-            <button id="btnAcceptAll" class="bg-stone-900 hover:bg-emerald-600 text-white font-bold px-4 py-2 rounded-xl shadow-sm transition">
-                AGREE & ACCEPT / 同意并继续
-            </button>
+        <div class="flex gap-3 shrink-0">
+            <button onclick="gdprAccept()" class="bg-emerald-600 hover:bg-emerald-500 text-black font-bold px-5 py-2 rounded text-xs tracking-wider transition">接受</button>
+            <button onclick="gdprDecline()" class="border border-stone-600 text-stone-400 hover:text-stone-200 px-5 py-2 rounded text-xs tracking-wider transition">拒绝</button>
         </div>
     </div>
 </div>
 
+<!-- Header -->
+<header class="border-b border-stone-800 bg-stone-950 px-6 py-6">
+    <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-3xl md:text-4xl font-black text-stone-100 tracking-tighter uppercase">
+            LAOMUNONG<span class="text-emerald-500">.</span>COM
+        </h1>
+        <p class="text-sm text-stone-500 font-mono mt-2">
+            // 老码农的数字资产武器库 — 双核驱动的独立创作者生产力平台
+        </p>
+    </div>
+</header>
+
+<!-- Main -->
+<main class="max-w-4xl mx-auto p-6 flex-grow flex flex-col justify-center gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- TECH WORKSHOP 卡片 -->
+        <a href="./tech-workshop/" class="geek-card block bg-stone-900 border border-stone-700 rounded-xl p-6 hover:border-emerald-500 transition-colors group">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">🛠️</span>
+                <h2 class="text-xl font-bold text-stone-100 tracking-tight uppercase">
+                    TECH <span class="text-emerald-400">WORKSHOP</span>
+                </h2>
+            </div>
+            <p class="text-sm text-stone-400 leading-relaxed mb-4">
+                专为 AI 开发者和独立创作者打造的硬核工具箱。Token 成本估算、VRAM 显存计算、Context 上下文风控 —— 全部纯前端运行，数据绝不上传服务器。
+            </p>
+            <div class="flex flex-wrap gap-2">
+                <span class="text-[10px] bg-stone-800 text-emerald-400 border border-emerald-900 px-2 py-0.5 rounded font-mono">Token</span>
+                <span class="text-[10px] bg-stone-800 text-emerald-400 border border-emerald-900 px-2 py-0.5 rounded font-mono">VRAM</span>
+                <span class="text-[10px] bg-stone-800 text-emerald-400 border border-emerald-900 px-2 py-0.5 rounded font-mono">Context</span>
+            </div>
+            <span class="inline-block mt-4 text-xs text-stone-500 group-hover:text-emerald-400 transition-colors">进入工坊 →</span>
+        </a>
+
+        <!-- QUANT TCM 卡片 -->
+        <a href="./quant-tcm/" class="geek-card block bg-stone-900 border border-stone-700 rounded-xl p-6 hover:border-amber-600 transition-colors group">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">⚗️</span>
+                <h2 class="text-xl font-bold text-stone-100 tracking-tight uppercase">
+                    QUANT <span class="text-amber-400">TCM</span>
+                </h2>
+            </div>
+            <p class="text-sm text-stone-400 leading-relaxed mb-4">
+                用精密数据逻辑重构传统医学控制精度。经方剂量换算、五运六气体质推算 —— 基于《黄帝内经》《历代度量衡考》的硬核量化研究。
+            </p>
+            <div class="flex flex-wrap gap-2">
+                <span class="text-[10px] bg-stone-800 text-amber-400 border border-amber-900 px-2 py-0.5 rounded font-mono">剂量换算</span>
+                <span class="text-[10px] bg-stone-800 text-amber-400 border border-amber-900 px-2 py-0.5 rounded font-mono">运气推算</span>
+                <span class="text-[10px] bg-stone-800 text-amber-400 border border-amber-900 px-2 py-0.5 rounded font-mono">经方分析</span>
+            </div>
+            <span class="inline-block mt-4 text-xs text-stone-500 group-hover:text-amber-400 transition-colors">进入实验室 →</span>
+        </a>
+
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="border-t border-stone-800 bg-stone-950 px-6 py-6">
+    <div class="max-w-4xl mx-auto text-center space-y-2">
+        <p class="text-[11px] text-stone-500">© 2026 laomunong.com All Rights Reserved. Matrix Engine.</p>
+        <p class="text-[10px] text-stone-600">本站所有工具均为纯客户端 JavaScript 运行，数据从不且绝不上传任何服务器，100% 保护用户隐私。</p>
+        <a href="./privacy-policy.html" class="text-[10px] text-stone-500 underline hover:text-emerald-400 transition-colors">隐私政策 / Privacy Policy</a>
+    </div>
+</footer>
+
 <script>
-    (function() {
-        const BANNER_ID = 'gdprConsentBanner';
-        const STORAGE_KEY = 'creators_matrix_gdpr_consent';
-        const banner = document.getElementById(BANNER_ID);
-        const btnAccept = document.getElementById('btnAcceptAll');
-        const btnReject = document.getElementById('btnRejectAll');
-
-        // 1. 检查浏览器本地沙箱，如果已经做过选择，直接放行，永不打扰
-        const consentStatus = localStorage.getItem(STORAGE_KEY);
-        if (!consentStatus) {
-            // 提示：工业级变现通常会在此通过 cloudflare/ip-api 判定地理位置是否属于欧盟区。
-            // 这里我们采用保守全量风控：初次访问的用户全部进行合规拦截。
-            setTimeout(() => {
-                banner.classList.remove('hidden', 'translate-y-10');
-            }, 1200); // 优雅入场延迟
-        } else if (consentStatus === 'granted') {
-            triggerTrackingNodes();
-        }
-
-        // 2. 核心用户决策逻辑
-        btnAccept.addEventListener('click', () => {
-            localStorage.setItem(STORAGE_KEY, 'granted');
-            dismissBanner();
-            triggerTrackingNodes();
-        });
-
-        btnReject.addEventListener('click', () => {
-            localStorage.setItem(STORAGE_KEY, 'denied');
-            dismissBanner();
-            // 严格合规：拒绝后不加载任何追踪和个性化广告脚本
-            console.log('GDPR Consent Denied. Fallback to privacy mode.');
-        });
-
-        function dismissBanner() {
-            banner.classList.add('translate-y-10', 'opacity-0');
-            setTimeout(() => banner.remove(), 400);
-        }
-
-        // 3. 动态触发加载函数（把你的广告、高阶GA4代码缝合到这里）
-        function triggerTrackingNodes() {
-            console.log('GDPR Consent Granted. Allocating monetization vectors...');
-            /* 💡 未来你的 AdSense 自动广告或者分析代码批复下来后，直接粘贴在下面：
-               (adsbygoogle = window.adsbygoogle || []).push({});
-            */
-        }
-    })();
+(function() {
+    var consent = localStorage.getItem('gdpr-consent');
+    if (!consent) {
+        document.getElementById('gdprBanner').classList.remove('hidden');
+    }
+})();
+function gdprAccept() {
+    localStorage.setItem('gdpr-consent', 'accepted');
+    document.getElementById('gdprBanner').classList.add('hidden');
+}
+function gdprDecline() {
+    localStorage.setItem('gdpr-consent', 'declined');
+    document.getElementById('gdprBanner').classList.add('hidden');
+}
 </script>
 </body>
 </html>
