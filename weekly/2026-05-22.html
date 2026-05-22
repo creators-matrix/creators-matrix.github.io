@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全站改版：从散装页面到双核矩阵 — 老码农周报 2026-05-22</title>
+    <meta name="description" content="统一黑白极客风配色，双核导航上线，GDPR弹窗，五运六气推算器修复算法bug。">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-stone-950 text-stone-200 min-h-screen flex flex-col font-sans">
+
+<header class="border-b border-stone-800 bg-stone-950 px-6 py-5">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-[11px] text-stone-500 font-mono mb-1">
+            <a href="../../" class="hover:text-emerald-400 transition-colors">Matrix</a>
+            <span class="text-stone-700"> / </span>
+            <a href="./" class="hover:text-emerald-400 transition-colors">Weekly</a>
+            <span class="text-stone-700"> / </span>
+            <span class="text-emerald-400">2026-05-22</span>
+        </div>
+        <h1 class="text-xl font-black text-stone-100 tracking-tight">全站改版：从散装页面到双核矩阵</h1>
+        <time class="text-xs text-stone-500 font-mono">2026-05-22</time>
+    </div>
+</header>
+
+<article class="max-w-3xl mx-auto p-6 flex-grow text-sm text-stone-400 leading-relaxed space-y-4">
+    <p>这个周末干了件大事——把三个散装的独立页面重构为统一的"AI技术工坊 + 量化中医实验室"双核结构。</p>
+
+    <h2 class="text-lg font-bold text-stone-100 mt-6 mb-2">做了什么</h2>
+    <ul class="list-disc list-inside space-y-1">
+        <li>统一全站配色为黑底极客风（Stone 950色系）——之前AI页面白底、中医页面宣纸色，放一起完全不搭</li>
+        <li>总大门改为双核导航卡片：TECH WORKSHOP / QUANT TCM 并列展示</li>
+        <li>添加 GDPR Cookie 同意弹窗（localStorage缓存用户选择）</li>
+        <li>所有工具页升级为"上半屏交互 + 下半屏SEO长文"缝合结构</li>
+        <li>五运六气推算器从 blog 迁移到独立的 yunqi 工具目录</li>
+        <li>所有路径改为相对路径（../../模式），确保任意子目录独立部署都能秒开</li>
+    </ul>
+
+    <h2 class="text-lg font-bold text-stone-100 mt-6 mb-2">踩了什么坑</h2>
+    <ol class="list-decimal list-inside space-y-2">
+        <li><strong class="text-stone-200">最坑的：</strong>工具页从 blog/ 迁移到 articles/ 后，20篇文章的导航链接全部404。因为旧的 relative path 是 <code class="text-xs bg-stone-800 px-1 rounded">../../blog/article1.html</code>，移动后没改。查了一个小时才发现。</li>
+        <li><strong class="text-stone-200">算法bug：</strong>五运六气的天干化运映射写错了——用了天干自身五行（甲乙木、丙丁火...）而不是天干化运（甲己化土、乙庚化金...）。10个映射错了8个。感谢一位中医背景的读者私信指出。</li>
+        <li><strong class="text-stone-200">Pagefind困境：</strong>想加静态全文搜索，但 Pagefind 需要先 build 生成索引文件。这和"零构建工具"的原则冲突，暂时在每个文章列表页留了 HTML 占位框。</li>
+    </ol>
+
+    <h2 class="text-lg font-bold text-stone-100 mt-6 mb-2">接下来的计划</h2>
+    <ul class="list-disc list-inside space-y-1">
+        <li>给每个工具页补上 "为什么做这个工具" 的作者注记</li>
+        <li>建一个老码农周报页面（就是这里）</li>
+        <li>建一个支持/打赏页面</li>
+        <li>学一下 Tailwind 的响应式断点，把移动端体验优化一下</li>
+    </ul>
+
+    <p class="text-stone-500 text-xs pt-6 border-t border-stone-800">📝 47岁失业老码农，边学边做。每周日更新。</p>
+</article>
+
+<footer class="border-t border-stone-800 bg-stone-950 px-6 py-6">
+    <div class="max-w-3xl mx-auto text-center">
+        <a href="./" class="text-[10px] text-stone-500 underline hover:text-emerald-400 transition-colors">← 返回周报列表</a>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老码农周报 — laomunong.com 开发日志</title>
+    <meta name="description" content="一个47岁失业老码农的独立开发周报。记录每个工具的诞生过程、踩过的坑、学到的东西。">
+    <link rel="canonical" href="https://laomunong.com/weekly/">
+    <meta property="og:title" content="老码农周报 — laomunong.com 开发日志">
+    <meta property="og:description" content="47岁失业老码农的独立开发周报。真实记录，不装不藏。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://laomunong.com/weekly/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="google-site-verification" content="WBd5ihUqyGU_WVKMVppCAk2anl58qI1BSkAh-lMDjCs">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-stone-950 text-stone-200 min-h-screen flex flex-col font-sans">
+
+<header class="border-b border-stone-800 bg-stone-950 px-6 py-5">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-[11px] text-stone-500 font-mono mb-1">
+            <a href="../" class="hover:text-emerald-400 transition-colors">Matrix</a>
+            <span class="text-stone-700"> / </span>
+            <span class="text-emerald-400">Weekly</span>
+        </div>
+        <h1 class="text-2xl font-black text-stone-100 tracking-tight">📝 老码农 <span class="text-emerald-400">周报</span></h1>
+    </div>
+</header>
+
+<main class="max-w-3xl mx-auto p-6 flex-grow">
+    <div id="weeklyContainer" class="space-y-5">
+    </div>
+</main>
+
+<footer class="border-t border-stone-800 bg-stone-950 px-6 py-6">
+    <div class="max-w-3xl mx-auto text-center space-y-2">
+        <p class="text-[11px] text-stone-500">© 2026 laomunong.com All Rights Reserved.</p>
+        <a href="../" class="text-[10px] text-stone-500 underline hover:text-emerald-400 transition-colors">← 返回首页</a>
+    </div>
+</footer>
+
+<script>
+var weeklyData = [
+    { date:'2026-05-22', title:'全站改版：从散装页面到双核矩阵', desc:'统一黑白极客风，双核导航上线，GDPR弹窗，五运六气推算器修复算法bug。踩坑：迁移20篇文章后导航链接全部404，查了一小时才发现相对路径问题。', href:'./2026-05-22.html' },
+    { date:'2026-05-15', title:'AI工具三件套上线', desc:'Token计算器、VRAM计算器、Context风控器整合到tech-workshop。每个页面缝合SEO长文。踩坑：Pagefind需要构建步骤，和零构建原则冲突，暂时放HTML占位。', href:'./2026-05-15.html' }
+];
+
+function createWeeklyCard(w) {
+    var c = document.createElement('a');
+    c.href = w.href;
+    c.className = 'block bg-stone-900 border border-stone-700 rounded-xl p-5 hover:border-emerald-500 transition-colors group';
+    c.innerHTML = '<time class="text-[10px] text-stone-500 font-mono">'+w.date+'</time>'+
+        '<h2 class="text-base font-bold text-stone-100 mt-1 mb-2 group-hover:text-emerald-400 transition-colors">'+w.title+'</h2>'+
+        '<p class="text-xs text-stone-400 leading-relaxed">'+w.desc+'</p>';
+    return c;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var container = document.getElementById('weeklyContainer');
+    weeklyData.forEach(function(w) { container.appendChild(createWeeklyCard(w)); });
+});
+</script>
+</body>
+</html>

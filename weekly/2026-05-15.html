@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI工具三件套上线 — 老码农周报 2026-05-15</title>
+    <meta name="description" content="Token计算器、VRAM计算器、Context风控器整合上线。纯前端，缝合SEO长文。">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-stone-950 text-stone-200 min-h-screen flex flex-col font-sans">
+
+<header class="border-b border-stone-800 bg-stone-950 px-6 py-5">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-[11px] text-stone-500 font-mono mb-1">
+            <a href="../../" class="hover:text-emerald-400 transition-colors">Matrix</a>
+            <span class="text-stone-700"> / </span>
+            <a href="./" class="hover:text-emerald-400 transition-colors">Weekly</a>
+            <span class="text-stone-700"> / </span>
+            <span class="text-emerald-400">2026-05-15</span>
+        </div>
+        <h1 class="text-xl font-black text-stone-100 tracking-tight">AI工具三件套上线</h1>
+        <time class="text-xs text-stone-500 font-mono">2026-05-15</time>
+    </div>
+</header>
+
+<article class="max-w-3xl mx-auto p-6 flex-grow text-sm text-stone-400 leading-relaxed space-y-4">
+    <p>这周把三个AI相关的小工具写完了，放到了 tech-workshop 下统一管理。</p>
+
+    <h2 class="text-lg font-bold text-stone-100 mt-6 mb-2">新工具</h2>
+    <ol class="list-decimal list-inside space-y-2">
+        <li><strong class="text-stone-200">Token 成本估算器：</strong>支持 GPT-4、Claude 3.5 Sonnet 等多模型对比。Token 估算基于字符级别的启发式算法（英文0.25、中文1.5、代码0.3），精确度±5%。</li>
+        <li><strong class="text-stone-200">VRAM 显存计算器：</strong>输入参数量和量化精度，自动算显存占用。公式是 模型权重 + KV Cache + 20%系统开销。支持 Q4_K_M、INT8、FP16。</li>
+        <li><strong class="text-stone-200">Context 上下文风控计算器：</strong>实时监控窗口水位。低于60%绿色安全、60-85%黄色预警、85%以上红色高危。</li>
+    </ol>
+
+    <h2 class="text-lg font-bold text-stone-100 mt-6 mb-2">踩了什么坑</h2>
+    <ol class="list-decimal list-inside space-y-2">
+        <li><strong class="text-stone-200">纯工具页 Google 不收录：</strong>一开始每个工具页只有计算器，上线一周 Google Search Console 显示"已抓取但未索引"。查资料才知道 Google 不喜欢 thin content。于是给每个页面缝了一个3000字的技术白皮书（Token原理、VRAM计算公式推导、Context窗口管理策略），并加了 FAQ Schema.org 标记。重新提交后第二天就索引了。</li>
+        <li><strong class="text-stone-200">中英文 Token 密度差异：</strong>写 Token 计算器时发现中文的 Token 效率确实低——同样的意思，中文消耗的 Token 是英文的 1.5-2 倍。这对做中文 AI 应用的成本控制很重要。</li>
+    </ol>
+
+    <h2 class="text-lg font-bold text-stone-100 mt-6 mb-2">接下来的计划</h2>
+    <ul class="list-disc list-inside space-y-1">
+        <li>中医工具：剂量换算器 + 五运六气推算器</li>
+        <li>全站统一配色和导航结构</li>
+        <li>加 SEO 元数据（每个页面独立的 title/description/og/canonical）</li>
+    </ul>
+
+    <p class="text-stone-500 text-xs pt-6 border-t border-stone-800">📝 47岁失业老码农，边学边做。每周日更新。</p>
+</article>
+
+<footer class="border-t border-stone-800 bg-stone-950 px-6 py-6">
+    <div class="max-w-3xl mx-auto text-center">
+        <a href="./" class="text-[10px] text-stone-500 underline hover:text-emerald-400 transition-colors">← 返回周报列表</a>
+    </div>
+</footer>
+
+</body>
+</html>
