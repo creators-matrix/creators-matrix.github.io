@@ -11,6 +11,9 @@
   <url><loc>https://laomunong.com/tech-workshop/tools/base64/</loc><priority>0.8</priority></url>
   <url><loc>https://laomunong.com/tech-workshop/tools/timestamp/</loc><priority>0.8</priority></url>
   <url><loc>https://laomunong.com/tech-workshop/tools/regex/</loc><priority>0.8</priority></url>
+  <url><loc>https://laomunong.com/tech-workshop/tools/prompt-compare/</loc><priority>0.7</priority></url>
+  <url><loc>https://laomunong.com/tech-workshop/tools/markdown/</loc><priority>0.7</priority></url>
+  <url><loc>https://laomunong.com/quant-tcm/tools/formula-calc/</loc><priority>0.7</priority></url>
   <url><loc>https://laomunong.com/quant-tcm/</loc><priority>0.9</priority></url>
   <url><loc>https://laomunong.com/quant-tcm/articles/</loc><priority>0.7</priority></url>
   <url><loc>https://laomunong.com/quant-tcm/tools/dosage/</loc><priority>0.8</priority></url>
