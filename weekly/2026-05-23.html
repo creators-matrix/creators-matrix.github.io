@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../assets/avatar.png">
-    <title>一天写了8个工具，踩了3个坑 — 老码农周报 2026-05-23</title>
-    <meta name="description" content="一天上线8个新工具。sed命令在macOS上行为不一样、文件差点被毁、算法映射全错——真实记录。">
+    <title>全站重构 + 11个新工具上线 — 老码农周报 2026-05-23</title>
+    <meta name="description" content="三周干了三件事：双核架构全站改版、11个新工具上线、SEO和变现基础设施。真实记录每次踩坑。">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-stone-950 text-stone-200 min-h-screen flex flex-col font-sans">
@@ -19,59 +19,85 @@
             <span class="text-stone-700"> / </span>
             <span class="text-emerald-400">2026-05-23</span>
         </div>
-        <h1 class="text-xl font-black text-stone-100 tracking-tight">一天写了8个工具，踩了3个坑</h1>
-        <time class="text-xs text-stone-500 font-mono">2026-05-23</time>
+        <h1 class="text-xl font-black text-stone-100 tracking-tight">全站重构 + 11个新工具上线</h1>
+        <time class="text-xs text-stone-500 font-mono">2026年5月17日 – 5月23日</time>
     </div>
 </header>
 
 <article class="max-w-3xl mx-auto p-6 flex-grow text-sm text-stone-400 leading-relaxed space-y-4">
-    <p>今天可能是这个网站上线以来最高产的一天。从上午十点干到凌晨一点，一共上线了8个新工具。但过程远没有数字看起来那么顺利——踩了3个让我想砸键盘的坑。</p>
+    <p>这三周是这个网站从零到一的阶段。回头看不长，但每一步都是踩坑踩出来的。</p>
 
-    <h2 class="text-lg font-bold text-stone-100 mt-6 mb-2">做了什么</h2>
-
-    <h3 class="text-base font-bold text-emerald-400 mt-4">第一批：4个开发者刚需工具</h3>
+    <h2 class="text-lg font-bold text-stone-100 mt-8 mb-2">一、全站架构重构：从散装页面到双核矩阵</h2>
     <ul class="list-disc list-inside space-y-1">
-        <li><strong>JSON格式化校验器</strong>：美化、压缩、语法校验三种模式。这个是我最常用的——调试API时对着压缩成一行的JSON找bug，「少了一个逗号查了一个小时」的痛。</li>
-        <li><strong>Base64编解码工具</strong>：文本和图片都能编解码。不用再找在线工具上传文件了，全部在浏览器本地完成。</li>
-        <li><strong>Unix时间戳转换器</strong>：秒级/毫秒级自动识别，实时显示当前时间戳。起因是「对接第三方API时对方用秒级、我们用毫秒级，一个少三个零的bug查了半天」。</li>
-        <li><strong>正则表达式测试器</strong>：输入正则和测试文本，实时高亮匹配结果，显示捕获组。写了一键加载的日期/邮箱/URL示例。</li>
+        <li>三个散装HTML整合为「AI技术工坊 + 量化中医实验室」双核结构，主仓库 creators-matrix.github.io 统一入口</li>
+        <li>全站配色统一为黑底极客风（Stone 950色系）。之前AI页面白底、中医页面宣纸色，放一起完全不搭</li>
+        <li>所有路径改为相对路径（../../模式），适配多仓独立部署</li>
+        <li>每页独立SEO Meta块（Title、Description、Canonical、OG标签）</li>
+        <li>总大门双核导航卡片 + GDPR Cookie同意弹窗（localStorage缓存）</li>
     </ul>
 
-    <h3 class="text-base font-bold text-emerald-400 mt-4">第二批：3个差异化工具</h3>
+    <h3 class="text-base font-bold text-red-400 mt-4">踩坑：迁移20篇文章后导航链接全部404</h3>
+    <p>文章从 blog/ 迁移到 articles/ 后，20个HTML文件里的内部链接全坏了。blog目录已经被删掉，404报了一个小时才发现是相对路径没跟着改。最后用Python脚本批量修的。</p>
+
+    <h2 class="text-lg font-bold text-stone-100 mt-8 mb-2">二、11个新工具上线</h2>
+
+    <h3 class="text-base font-bold text-emerald-400 mt-4">AI开发者工具（7个）</h3>
     <ul class="list-disc list-inside space-y-1">
-        <li><strong>AI Prompt效果对比器</strong>：左右分栏对比两个Prompt，自动分析Token消耗、关键词密度、结构完整性评分。没办法真接API，但可以帮你快速判断哪个Prompt更「专业」。</li>
-        <li><strong>Markdown实时预览编辑器</strong>：左边写、右边看，带工具栏。起因是「写README时在VSCode里写完还得push到GitHub才能看到渲染效果」。纯手写的Markdown解析器，没有引入任何第三方库。</li>
-        <li><strong>中医方剂加减计算器</strong>：选了桂枝汤、麻黄汤、小青龙汤、半夏泻心汤四个经典方剂，可以加减药味、调整剂量，自动计算总剂量和药量占比。用柱状条可视化每味药的占比。</li>
+        <li><strong>Token成本估算器</strong> — 起因：第一次用GPT-4做项目，月底账单150美元，一半是长Prompt里的废话吃掉的</li>
+        <li><strong>VRAM显存计算器</strong> — 起因：8G显存买了跑不动的模型，白花三千块</li>
+        <li><strong>Context风控计算器</strong> — 起因：n8n管线AI聊到第五轮胡言乱语，排查半天发现是上下文爆了</li>
+        <li><strong>JSON格式化校验器</strong> — 起因：调试API时对着压缩成一行的JSON找bug，少了个逗号查了一小时</li>
+        <li><strong>Base64编解码工具</strong> — 起因：网上在线工具都要求上传文件，怕数据泄露</li>
+        <li><strong>Unix时间戳转换器</strong> — 起因：对接API时对方用秒级、我们用毫秒级，少三个零的bug查半天</li>
+        <li><strong>正则表达式测试器</strong> — 起因：写爬虫时正则调一次要重跑脚本，太慢</li>
     </ul>
 
-    <h3 class="text-base font-bold text-emerald-400 mt-4">第三批：代码片段收藏夹 + 全站使用计数器</h3>
+    <h3 class="text-base font-bold text-emerald-400 mt-4">AI增强工具（3个）</h3>
     <ul class="list-disc list-inside space-y-1">
-        <li><strong>代码片段收藏夹</strong>：用localStorage存储，支持搜索过滤、编辑删除、一键复制。所有数据存在浏览器里，不需要登录。</li>
-        <li><strong>全站使用计数器</strong>：给14个工具页面都注入了localStorage计数器。每个工具页底部显示「🔢 使用 X 次」。实现方式是Python脚本批量注入，因为涉及14个文件手动改会疯。</li>
+        <li><strong>AI Prompt效果对比器</strong> — 左右分栏对比两个Prompt，自动分析Token消耗和结构完整性评分</li>
+        <li><strong>Markdown实时预览编辑器</strong> — 左边写右边看，纯手写解析器，没引入第三方库</li>
+        <li><strong>代码片段收藏夹</strong> — localStorage存储，搜索过滤，一键复制</li>
     </ul>
 
-    <h2 class="text-lg font-bold text-stone-100 mt-6 mb-2">踩了什么坑</h2>
+    <h3 class="text-base font-bold text-emerald-400 mt-4">中医量化工具（3个）</h3>
+    <ul class="list-disc list-inside space-y-1">
+        <li><strong>经方剂量精密换算器</strong> — 起因：看《伤寒论》时发现「三两」到底是几克，查了半个月才搞清楚东汉一两≈13.8g</li>
+        <li><strong>五运六气体质量化推算器</strong> — 起因：想知道自己先天体质偏向，用代码把《黄帝内经》运气七篇翻译成JavaScript</li>
+        <li><strong>方剂加减计算器</strong> — 桂枝汤5味药能衍生出20多个方子，之前只能用Excel手动算</li>
+    </ul>
+
+    <h2 class="text-lg font-bold text-stone-100 mt-8 mb-2">三、记住的三个坑</h2>
 
     <ol class="list-decimal list-inside space-y-3">
         <li>
-            <strong class="text-red-400">macOS的 sed 和 Linux 不一样，批量替换翻车</strong><br>
-            给14个工具页注入计数器时，写了一个bash脚本用 sed 批量替换。在Linux上测试通过的 sed 命令，到了macOS上完全不行——BSD sed 对特殊字符的处理和 GNU sed 不一样，`|` 分隔符跟替换内容里的管道符冲突，所有文件替换失败但没有报错退出。最后改用 Python 的 `os.walk()` + `str.replace()` 才搞定。教训：在macOS上写脚本，能不用sed就别用sed，Python更可靠。
+            <strong class="text-red-400">macOS的 sed 和 seq 跟 Linux 不一样，批量操作翻车两次</strong><br>
+            第一次：用 seq 1 $depth 生成路径前缀，当depth=0时，Linux上 seq 1 0 不输出（正确），macOS上输出 1 和 0 两行，导致所有根目录文件的favicon路径变成 ../../assets 而非 ./assets。第二次：用 sed 批量替换14个文件，BSD sed 对特殊字符的处理不一样，所有文件替换失败但没有报错。教训：在macOS上写批量脚本，能不用sed/seq就别用，Python更可靠。
         </li>
         <li>
-            <strong class="text-red-400">macOS的 seq 1 0 居然有输出</strong><br>
-            给全站35个HTML文件加favicon时，用了一个脚本根据文件深度计算相对路径。里面用了 `seq 1 $depth` 来生成 `../` 前缀。当depth=0时，在Linux上 seq 1 0 不输出任何东西（正确行为），但在macOS上 seq 1 0 输出 `1` 和 `0` 两行，导致depth=0的文件路径变成了 `../../assets/avatar.png` 而不是 `./assets/avatar.png`。所有根目录文件的favicon路径全错。这个bug花了20分钟才定位到是 seq 的行为差异——谁能想到 seq 1 0 会有输出？
+            <strong class="text-red-400">五运六气算法——天干化运映射全错</strong><br>
+            推算器里天干到岁运的映射用的是「天干自身五行」（甲乙属木、丙丁属火），但《黄帝内经》五运六气用的是「天干化运」（甲己化土、乙庚化金、丙辛化水、丁壬化木、戊癸化火）。10个映射错了8个，只有己和庚碰巧对上了。一位中医背景的读者私信指出——如果不是有人懂，这个bug可能永远发现不了，因为雷达到看起来「有模有样」，外行根本看不出来。
         </li>
         <li>
-            <strong class="text-red-400">五运六气算法天干→五行映射全错（这是昨天发现的，但值得记下来）</strong><br>
-            一位中医背景的读者私信指出：推算器里天干到岁运的映射用的是「天干自身五行」（甲乙木、丙丁火...），但《黄帝内经》五运六气用的是「天干化运」（甲己化土、乙庚化金、丙辛化水、丁壬化木、戊癸化火）。10个映射错了8个，只有己和庚碰巧对上了。如果不是有人指出，这个bug可能永远没人发现——因为雷达到看起来「有模有样」，非专业人士根本看不出来。
+            <strong class="text-red-400">Buy Me a Coffee链接标签是空的</strong><br>
+            写了 `<a href="..."></a>` 但忘了在标签里填文字，页面上一片空白。一个用户点了半天没反应，在GitHub提了issue。这种低级错误在赶工时最容易犯。
         </li>
     </ol>
 
-    <h2 class="text-lg font-bold text-stone-100 mt-6 mb-2">感受</h2>
-    <p>今天写了大概3000行HTML+JS，但最有价值的不是代码量，是踩坑的过程。两个操作系统兼容性bug，一个算法原理性错误——每一个都让我意识到「以为自己懂」和「真的懂」之间的差距。</p>
-    <p>不过话说回来，一天上线8个工具，放在失业前的公司里，光是需求评审和排期就要两周。</p>
+    <h2 class="text-lg font-bold text-stone-100 mt-8 mb-2">四、还在解决的问题</h2>
+    <ul class="list-disc list-inside space-y-1">
+        <li>Pagefind全文搜索需要build步骤，和「零构建工具」原则冲突，暂时在每个文章列表页留了HTML占位框</li>
+        <li>移动端响应式还没细调，有些工具在手机上按钮太小</li>
+        <li>想加个Giscus评论系统，但需要先建GitHub Discussion，还在犹豫</li>
+    </ul>
 
-    <p class="text-stone-500 text-xs pt-6 border-t border-stone-800">📝 47岁失业老码农，边学边做。每周日更新。</p>
+    <h2 class="text-lg font-bold text-stone-100 mt-8 mb-2">五、下周计划</h2>
+    <ul class="list-disc list-inside space-y-1">
+        <li>所有工具页的下半屏SEO长文——现在只有token/vram/context/dosage/yunqi五个页有，其他的要补</li>
+        <li>移动端适配优化</li>
+        <li>开始写真正的AI技术文章（不是缝合的SEO白皮书，而是实操教程）</li>
+    </ul>
+
+    <p class="text-stone-500 text-xs pt-6 border-t border-stone-800">📝 47岁失业老码农，边学边做。每周日更新。一个人，一台笔记本，没有团队。</p>
 </article>
 
 <footer class="border-t border-stone-800 bg-stone-950 px-6 py-6">
