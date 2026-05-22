@@ -78,6 +78,74 @@
 
         window.onload = renderMatrix;
     </script>
+    <div id="gdprConsentBanner" class="hidden fixed bottom-4 right-4 max-w-md bg-white border border-stone-200 shadow-xl rounded-2xl p-6 z-50 transition-all duration-300 transform translate-y-10">
+    <div class="space-y-4">
+        <div class="flex items-center gap-2">
+            <span class="text-lg">🇪🇺</span>
+            <h3 class="text-sm font-bold text-stone-900 tracking-tight">Your Privacy & Consent Choices (EEA/UK/CH Compliance)</h3>
+        </div>
+        <p class="text-xs text-stone-500 leading-relaxed">
+            We and our certified third-party partners (such as Google AdSense) use technologies like cookies to process personal data, measure ad performance, and secure site analytics. In compliance with GDPR and local regulations, we require your explicit consent before loading tracking nodes. You can review our full <a href="./privacy-policy.html" class="text-emerald-600 font-bold underline">Privacy Policy</a> at any time.
+        </p>
+        <div class="flex items-center justify-end gap-2.5 pt-2 text-xs font-mono">
+            <button id="btnRejectAll" class="text-stone-500 hover:text-rose-600 border border-stone-200 px-3 py-2 rounded-xl bg-stone-50 transition">
+                REJECT / 拒绝
+            </button>
+            <button id="btnAcceptAll" class="bg-stone-900 hover:bg-emerald-600 text-white font-bold px-4 py-2 rounded-xl shadow-sm transition">
+                AGREE & ACCEPT / 同意并继续
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const BANNER_ID = 'gdprConsentBanner';
+        const STORAGE_KEY = 'creators_matrix_gdpr_consent';
+        const banner = document.getElementById(BANNER_ID);
+        const btnAccept = document.getElementById('btnAcceptAll');
+        const btnReject = document.getElementById('btnRejectAll');
+
+        // 1. 检查浏览器本地沙箱，如果已经做过选择，直接放行，永不打扰
+        const consentStatus = localStorage.getItem(STORAGE_KEY);
+        if (!consentStatus) {
+            // 提示：工业级变现通常会在此通过 cloudflare/ip-api 判定地理位置是否属于欧盟区。
+            // 这里我们采用保守全量风控：初次访问的用户全部进行合规拦截。
+            setTimeout(() => {
+                banner.classList.remove('hidden', 'translate-y-10');
+            }, 1200); // 优雅入场延迟
+        } else if (consentStatus === 'granted') {
+            triggerTrackingNodes();
+        }
+
+        // 2. 核心用户决策逻辑
+        btnAccept.addEventListener('click', () => {
+            localStorage.setItem(STORAGE_KEY, 'granted');
+            dismissBanner();
+            triggerTrackingNodes();
+        });
+
+        btnReject.addEventListener('click', () => {
+            localStorage.setItem(STORAGE_KEY, 'denied');
+            dismissBanner();
+            // 严格合规：拒绝后不加载任何追踪和个性化广告脚本
+            console.log('GDPR Consent Denied. Fallback to privacy mode.');
+        });
+
+        function dismissBanner() {
+            banner.classList.add('translate-y-10', 'opacity-0');
+            setTimeout(() => banner.remove(), 400);
+        }
+
+        // 3. 动态触发加载函数（把你的广告、高阶GA4代码缝合到这里）
+        function triggerTrackingNodes() {
+            console.log('GDPR Consent Granted. Allocating monetization vectors...');
+            /* 💡 未来你的 AdSense 自动广告或者分析代码批复下来后，直接粘贴在下面：
+               (adsbygoogle = window.adsbygoogle || []).push({});
+            */
+        }
+    })();
+</script>
 </body>
 <footer class="text-center text-xs text-stone-400 mt-12 space-y-2">
         <p>© 2026 Creators Matrix. Powered by GitHub Pages Sandboxed Engine.</p>
