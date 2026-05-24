@@ -33,6 +33,7 @@
   <url><loc>https://laomunong.com/quant-tcm/tools/dosage/</loc><priority>0.8</priority></url>
   <url><loc>https://laomunong.com/quant-tcm/tools/yunqi/</loc><priority>0.8</priority></url>
   <url><loc>https://laomunong.com/quant-tcm/tools/formula-calc/</loc><priority>0.7</priority></url>
+  <url><loc>https://laomunong.com/quant-tcm/ziwei/</loc><priority>0.8</priority></url>
 
   <!-- 量化中医20篇文章 -->
   <url><loc>https://laomunong.com/quant-tcm/articles/article1.html</loc><priority>0.6</priority></url>
